@@ -1,4 +1,4 @@
-import { css, cx } from "linaria"
+import { css } from "@emotion/react"
 import React from "react"
 
 const noFlexShrink = css`
@@ -30,14 +30,14 @@ const height96px = css`
 
 export const Spacers = {
   Horizontal: {
-    _4px: () => <div className={cx(noFlexShrink, width4px)} />,
+    _4px: () => <div css={[noFlexShrink, width4px]} />,
   },
   Vertical: {
-    _0px: () => <div className={cx(noFlexShrink, height0px)} />,
-    _4px: () => <div className={cx(noFlexShrink, height4px)} />,
-    _8px: () => <div className={cx(noFlexShrink, height8px)} />,
-    _48px: () => <div className={cx(noFlexShrink, height48px)} />,
-    _64px: () => <div className={cx(noFlexShrink, height64px)} />,
-    _96px: () => <div className={cx(noFlexShrink, height96px)} />,
+    _0px: () => <div css={[noFlexShrink, height0px]} />,
+    _4px: () => <div css={[noFlexShrink, height4px]} />,
+    _8px: () => <div css={[noFlexShrink, height8px]} />,
+    _48px: () => <div css={[noFlexShrink, height48px]} />,
+    _64px: () => <div css={[noFlexShrink, height64px]} />,
+    _96px: () => <div css={[noFlexShrink, height96px]} />,
   },
 }
