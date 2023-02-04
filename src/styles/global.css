@@ -1,0 +1,112 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  line-height: 24px;
+  color: #46474e;
+  font-family: "Neue Haas Unica", Inter, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+html {
+  /* Prevents page from jumping with scrollbar */
+  overflow-y: scroll;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+  transition-property: color, border-color, background-color, opacity, outline;
+  transition-duration: 0.1s;
+}
+
+div,
+span,
+input,
+button {
+  font-family: "Neue Haas Unica", Inter, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  user-select: none;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.25;
+}
+
+main {
+  min-height: 100vh;
+}
+
+/* fonts */
+@import url("https://fast.fonts.net/lt/1.css?apiType=css&c=b857109e-239b-4f8c-8891-24047d97c670&fontids=1491986,1491988,1492559,1492561");
+@font-face {
+  font-family: "Neue Haas Unica";
+  src: url("fonts/1491986/2418a824-3af2-42d7-a62e-f7a77cf487d1.woff2")
+      format("woff2"),
+    url("fonts/1491986/86b76db5-9343-473a-a106-60683cec7626.woff")
+      format("woff");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Neue Haas Unica";
+  src: url("fonts/1491988/e0d80810-f7e3-4fea-8c57-ef8116f0465d.woff2")
+      format("woff2"),
+    url("fonts/1491988/27645c8a-608b-4abf-a2f1-c4407b576723.woff")
+      format("woff");
+}
+@font-face {
+  font-family: "Neue Haas Unica";
+  src: url("fonts/1492559/cc589c6c-1ce4-4279-8684-c378497d1c68.woff2")
+      format("woff2"),
+    url("fonts/1492559/8546c78d-5a38-4c7b-9371-5a70d803922a.woff")
+      format("woff");
+  font-style: italic;
+}
+@font-face {
+  font-family: "Neue Haas Unica";
+  src: url("fonts/1492561/f8d5f51c-be93-429f-b91a-4216f471b822.woff2")
+      format("woff2"),
+    url("fonts/1492561/3456ffb1-d681-44a9-be28-4167dfd15c23.woff")
+      format("woff");
+  font-weight: 500;
+  font-style: italic;
+}
