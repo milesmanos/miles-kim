@@ -3,7 +3,7 @@ import * as React from "react"
 import HomeLayout from "../components/homeLayout"
 import Seo from "../components/seo"
 
-const ArtPage = ({ data }) => {
+const WritingPage = ({ data }) => {
   return (
     <HomeLayout>
       {data.allFile.nodes.map(node => (
@@ -15,4 +15,4 @@ const ArtPage = ({ data }) => {
 
 export const Head = () => <Seo title="Design"></Seo>
 
-export default ArtPage
+export default WritingPage

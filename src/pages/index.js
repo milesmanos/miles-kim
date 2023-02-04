@@ -17,7 +17,24 @@ const IndexPage = ({ data }) => {
   return (
     <HomeLayout>
       {projects.map(project => (
-        <div>{project.name}</div>
+        <div key={project.frontmatter.slug}>
+          {project.frontmatter.url ? (
+            <a href={project.frontmatter.url} target="_blank" rel="noreferrer">
+              <ProjectCard project={project}>
+                <ExternalLinkSVG size={16} />
+              </ProjectCard>
+            </a>
+          ) : (
+            <Link
+              to={project.frontmatter.category + "/" + project.frontmatter.slug}
+              state={{ originPage: "Home" }}
+            >
+              <ProjectCard project={project}>
+                <OpenSVG size={16} />
+              </ProjectCard>
+            </Link>
+          )}
+        </div>
       ))}
     </HomeLayout>
   )
@@ -25,9 +42,22 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    projects: allFile(filter: { sourceInstanceName: { eq: "project" } }) {
+    projects: allMdx {
       nodes {
-        name
+        frontmatter {
+          category
+          description
+          endDate
+          featured
+          length
+          preview
+          slug
+          size
+          startDate
+          thumb
+          title
+          url
+        }
       }
     }
   }

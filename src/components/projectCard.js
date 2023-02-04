@@ -97,7 +97,7 @@ const ProjectCard = ({ project, children }) => {
         {project.frontmatter.thumb ? (
           <>
             <GatsbyImage
-              image={project.frontmatter.thumb.childImageSharp.gatsbyImageData}
+              image={project.frontmatter.thumb}
               alt={project.frontmatter.title}
               className={projectThumb}
             />
