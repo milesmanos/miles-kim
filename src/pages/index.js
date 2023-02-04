@@ -1,8 +1,6 @@
 import * as React from "react"
 import HomeLayout from "../components/homeLayout"
-
-import "../styles/global.css"
-import "../styles/normalize.css"
+import Seo from "../components/seo"
 
 // Hello again Miles! File Structure:
 // - Home: index.js (layout in HomeLayout.js)
@@ -20,6 +18,6 @@ const IndexPage = () => {
   )
 }
 
-export const Head = () => <title>Home Page</title>
+export const Head = () => <Seo title="Home"></Seo>
 
 export default IndexPage
