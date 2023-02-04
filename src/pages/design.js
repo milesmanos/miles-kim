@@ -1,13 +1,14 @@
+import { graphql } from "gatsby"
 import * as React from "react"
 import HomeLayout from "../components/homeLayout"
 import Seo from "../components/seo"
 
-const DesignPage = () => {
+const DesignPage = ({ data }) => {
   return (
     <HomeLayout>
-      <div>Ello govna</div>
-      <div>Ello govna</div>
-      <div>Ello govna</div>
+      {data.allFile.nodes.map(node => (
+        <li key={node.name}>{node.name}</li>
+      ))}
     </HomeLayout>
   )
 }

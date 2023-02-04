@@ -1,6 +1,5 @@
 import { Link } from "gatsby"
-import { css } from "@emotion/react"
-import { cx } from "emotion"
+import { css, cx } from "@emotion/css"
 import React from "react"
 import { colors } from "../styles/colors"
 import { breakpoint } from "../styles/layout"
@@ -24,26 +23,25 @@ const link = css`
   border-radius: 99px;
   @media (hover: hover) {
     :hover {
-      border: 1px solid ${colors.line.dark};
+      border: 1px solid ${colors.black.darkest};
       color: ${colors.black.darkest};
     }
   }
 
-  div {
+  div.ellipse {
     border-radius: 99px;
     width: 8px;
     height: 8px;
   }
-`
-
-const red = css`
-  background-color: ${colors.red};
-`
-const green = css`
-  background-color: ${colors.green};
-`
-const blue = css`
-  background-color: ${colors.blue};
+  div.red {
+    background-color: ${colors.red};
+  }
+  div.green {
+    background-color: ${colors.green};
+  }
+  div.blue {
+    background-color: ${colors.blue};
+  }
 `
 
 const redLink = css`
@@ -57,7 +55,7 @@ const redLink = css`
     background-color: ${colors.red};
     color: white;
     border: 1px solid ${colors.red};
-    div {
+    div.ellipse {
       background-color: white;
     }
     /* Match class activeDesign */
@@ -74,7 +72,7 @@ const greenLink = css`
     background-color: ${colors.green};
     color: white;
     border: 1px solid ${colors.green};
-    div {
+    div.ellipse {
       background-color: white;
     }
     /* Match class activeArt */
@@ -91,7 +89,7 @@ const blueLink = css`
     background-color: ${colors.blue};
     color: white;
     border: 1px solid ${colors.blue};
-    div {
+    div.ellipse {
       background-color: white;
     }
     /* Match class activeWriting */
@@ -110,7 +108,7 @@ const activeFeatured = css`
   border: 1px solid ${colors.black.darkest};
   background-color: ${colors.black.darkest};
   color: white;
-  div {
+  div.ellipse {
     background-color: white;
   }
 `
@@ -118,7 +116,7 @@ const activeDesign = css`
   background-color: ${colors.red};
   color: white;
   border: 1px solid ${colors.red};
-  div {
+  div.ellipse {
     background-color: white;
   }
 `
@@ -126,7 +124,7 @@ const activeArt = css`
   background-color: ${colors.green};
   color: white;
   border: 1px solid ${colors.green};
-  div {
+  div.ellipse {
     background-color: white;
   }
 `
@@ -134,7 +132,7 @@ const activeWriting = css`
   background-color: ${colors.blue};
   color: white;
   border: 1px solid ${colors.blue};
-  div {
+  div.ellipse {
     background-color: white;
   }
 `
@@ -156,37 +154,43 @@ const AllProjectsSVG = () => (
   </svg>
 )
 
-export default function Tabs() {
+const Tabs = () => {
   return (
-    <div css={row}>
-      <Link activeClassName={cx(activeAny, activeFeatured)} css={link} to="/">
+    <div className={row}>
+      <Link
+        activeClassName={cx(activeAny, activeFeatured)}
+        className={link}
+        to="/"
+      >
         Featured
         <AllProjectsSVG />
       </Link>
       <Link
-        activeClassName={[activeAny, activeDesign]}
-        css={[link, redLink]}
+        activeClassName={cx(activeAny, activeDesign)}
+        className={cx(link, redLink)}
         to="/design/"
       >
         Design
-        <div css={red} />
+        <div className={cx("ellipse", "red")} />
       </Link>
       <Link
-        activeClassName={[activeAny, activeArt]}
-        css={[link, greenLink]}
+        activeClassName={cx(activeAny, activeArt)}
+        className={cx(link, greenLink)}
         to="/art/"
       >
         Art
-        <div css={green} />
+        <div className={cx("ellipse", "green")} />
       </Link>
       <Link
-        activeClassName={[activeAny, activeWriting]}
-        css={[link, blueLink]}
+        activeClassName={cx(activeAny, activeWriting)}
+        className={cx(link, blueLink)}
         to="/writing/"
       >
         Writing
-        <div css={blue} />
+        <div className={cx("ellipse", "blue")} />
       </Link>
     </div>
   )
 }
+
+export default Tabs
