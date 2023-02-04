@@ -42,7 +42,10 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    projects: allMdx {
+    projects: allMdx(
+      filter: { frontmatter: { featured: { eq: "y" } } }
+      sort: { frontmatter: { sortDate: DESC } }
+    ) {
       nodes {
         frontmatter {
           category
