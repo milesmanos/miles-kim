@@ -1,6 +1,5 @@
 import * as React from "react"
-import { css } from "@emotion/react"
-import { StaticImage } from "gatsby-plugin-image"
+import { css } from "@emotion/css"
 import Header from "./header"
 
 import "../styles/global.css"
@@ -25,9 +24,9 @@ const mainBody = css`
 
 const HomeLayout = ({ children }) => {
   return (
-    <div css={pageWrapper}>
+    <div className={pageWrapper}>
       <Header />
-      <div css={mainBody}>
+      <div className={mainBody}>
         <Tabs />
         {children}
       </div>

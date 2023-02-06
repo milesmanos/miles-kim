@@ -1,6 +1,6 @@
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import { css } from "@emotion/react"
+import { css, cx } from "@emotion/css"
 import React, { useState } from "react"
 import { CloseSVG } from "../icons/CloseSVG"
 import { ExternalLinkSVG } from "../icons/ExternalLinkSVG"
@@ -134,31 +134,30 @@ const Header = ({ isClear }) => {
   }
 
   return (
-    <div css={[navLayout, isClear && clear]}>
-      <div css={flexGrow}>
-        <Link to="/" css={miles}>
+    <div className={cx(navLayout, isClear && clear)}>
+      <div className={flexGrow}>
+        <Link to="/" className={miles}>
           Miles Kim
         </Link>
       </div>
-      <Button
-        isLightbox={isClear}
-        isBlack={!isClear}
-        onClick={() => handleOpenInfo()}
-      >
+      <Button isLightbox={isClear} onClick={() => handleOpenInfo()}>
         <div>Info</div>
       </Button>
 
       {/* Info */}
       {showInfo && (
         <>
-          <div css={infoOverlay}>
-            <button css={clickOutToClose} onClick={() => handleCloseInfo()}>
+          <div className={infoOverlay}>
+            <button
+              className={clickOutToClose}
+              onClick={() => handleCloseInfo()}
+            >
               {" "}
             </button>
-            <div css={infoBox}>
-              <div css={mockNav}>
-                <div css={flexGrow}>
-                  <Link to="/" css={miles}>
+            <div className={infoBox}>
+              <div className={mockNav}>
+                <div className={flexGrow}>
+                  <Link to="/" className={miles}>
                     Miles Kim
                   </Link>
                 </div>
@@ -166,8 +165,8 @@ const Header = ({ isClear }) => {
                   <div>Close</div>
                 </Button>
               </div>
-              <div css={infoContent}>
-                <div css={infoText}>
+              <div className={infoContent}>
+                <div className={infoText}>
                   <div>
                     ... designs interfaces, lives in San Francisco, writes
                     often, paints sometimes. Loves music, surfing, hiking, and
@@ -186,7 +185,7 @@ const Header = ({ isClear }) => {
                     Is working at Ahoy Labs.
                   </div>
                 </div>
-                <div css={buttonGroup}>
+                <div className={buttonGroup}>
                   <div className="buttonRow">
                     <div className="label">email</div>
                     <Button
@@ -201,18 +200,17 @@ const Header = ({ isClear }) => {
                         }, 2000)
                       }}
                       isDisabled={copiedText === "milesarthurkim@gmail.com"}
-                      isBlack
+                      svg={
+                        copiedText === "milesarthurkim@gmail.com" ? (
+                          <CheckSVG size={16} />
+                        ) : (
+                          <CopySVG size={16} />
+                        )
+                      }
                     >
-                      <div>
-                        {copiedText === "milesarthurkim@gmail.com"
-                          ? "Copied – can’t wait!"
-                          : "milesarthurkim@gmail.com"}
-                      </div>
-                      {copiedText === "milesarthurkim@gmail.com" ? (
-                        <CheckSVG size={16} />
-                      ) : (
-                        <CopySVG size={16} />
-                      )}
+                      {copiedText === "milesarthurkim@gmail.com"
+                        ? "Copied – can’t wait!"
+                        : "milesarthurkim@gmail.com"}
                     </Button>
                   </div>
                   <div className="buttonRow">
@@ -223,9 +221,8 @@ const Header = ({ isClear }) => {
                       rel="noreferrer"
                       style={{ width: "100%" }}
                     >
-                      <Button isFullWidth isBlack>
-                        <div>mileskim.substack.com</div>
-                        <ExternalLinkSVG size={16} />
+                      <Button isFullWidth svg={<ExternalLinkSVG size={16} />}>
+                        mileskim.substack.com
                       </Button>
                     </a>
                   </div>
@@ -235,12 +232,15 @@ const Header = ({ isClear }) => {
                   src="../images/square-prof-pic.jpg"
                   alt="Me"
                   aspectRatio={1 / 1}
-                  css={profPic}
+                  className={profPic}
                 />
                 <Spacers.Vertical._0px />
-                <Button isFullWidth onClick={() => handleCloseInfo()}>
-                  <div>Close</div>
-                  <CloseSVG size={16} />
+                <Button
+                  isFullWidth
+                  svg={<CloseSVG size={16} />}
+                  onClick={() => handleCloseInfo()}
+                >
+                  Close
                 </Button>
               </div>
             </div>

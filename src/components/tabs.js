@@ -98,6 +98,7 @@ const blueLink = css`
 
 // active classes
 const activeAny = css`
+  color: white;
   @media (hover: hover) {
     :hover {
       color: white;
@@ -105,9 +106,9 @@ const activeAny = css`
   }
 `
 const activeFeatured = css`
-  border: 1px solid ${colors.black.darkest};
   background-color: ${colors.black.darkest};
   color: white;
+  border: 1px solid ${colors.black.darkest};
   div.ellipse {
     background-color: white;
   }
@@ -154,7 +155,7 @@ const AllProjectsSVG = () => (
   </svg>
 )
 
-const Tabs = () => {
+export default function Tabs() {
   return (
     <div className={row}>
       <Link
@@ -192,5 +193,3 @@ const Tabs = () => {
     </div>
   )
 }
-
-export default Tabs

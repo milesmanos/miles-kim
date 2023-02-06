@@ -4,6 +4,9 @@ import React from "react"
 import { colors } from "../styles/colors"
 import { breakpoint } from "../styles/layout"
 import { text } from "../styles/text"
+import { ExternalLinkSVG } from "../icons/ExternalLinkSVG"
+import { OpenSVG } from "../icons/OpenSVG"
+import { Link } from "gatsby"
 
 // Link wrapper (contains all hover action):
 const projectLink = css`
@@ -86,15 +89,16 @@ const iotas = css`
   }
 `
 
-const ProjectCard = ({ project, children }) => {
+const ProjectCard = ({ project }) => {
   const image = getImage(project.frontmatter.thumb)
   const alt = project.frontmatter.title
+  const hasUrl = project.frontmatter.hasOwnProperty("url")
 
-  return (
+  const ProjectContent = ({ svg }) => (
     <div className={projectLink} key={project.id}>
       <div className={projectHeader}>
         <div className="title">{project.frontmatter.title}</div>
-        <div className="icon">{children}</div>
+        <div className="icon">{svg}</div>
       </div>
       <div className={projectBody}>
         {project.frontmatter.thumb ? (
@@ -118,6 +122,23 @@ const ProjectCard = ({ project, children }) => {
         </div>
       </div>
     </div>
+  )
+
+  return (
+    <>
+      {hasUrl ? (
+        <a href={project.frontmatter.url} target="_blank" rel="noreferrer">
+          <ProjectContent svg={<ExternalLinkSVG size={16} />} />
+        </a>
+      ) : (
+        <Link
+          to={project.frontmatter.category + "/" + project.frontmatter.slug}
+          state={{ originPage: "Home" }}
+        >
+          <ProjectContent svg={<OpenSVG size={16} />} />
+        </Link>
+      )}
+    </>
   )
 }
 

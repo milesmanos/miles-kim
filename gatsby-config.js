@@ -27,5 +27,19 @@ module.exports = {
         path: `${__dirname}/projects/art`,
       },
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: `design-projects`,
+        path: `${__dirname}/projects/design`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: `writing-projects`,
+        path: `${__dirname}/projects/writing`,
+      },
+    },
   ],
 }
