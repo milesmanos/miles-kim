@@ -30,7 +30,6 @@ const HomeLayout = ({ children }) => {
       <div css={mainBody}>
         <Tabs />
         {children}
-        <StaticImage src="../images/icon.png" />
       </div>
     </div>
   )

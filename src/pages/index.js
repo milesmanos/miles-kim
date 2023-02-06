@@ -14,28 +14,39 @@ import { OpenSVG } from "../icons/OpenSVG"
 
 const IndexPage = ({ data }) => {
   const projects = data.projects.nodes
+
+  const HasUrlCard = ({ project }) => (
+    <a href={project.frontmatter.url} target="_blank" rel="noreferrer">
+      <ProjectCard project={project}>
+        <ExternalLinkSVG size={16} />
+      </ProjectCard>
+    </a>
+  )
+
+  const NoUrlCard = ({ project }) => (
+    <Link
+      to={project.frontmatter.category + "/" + project.frontmatter.slug}
+      state={{ originPage: "Home" }}
+    >
+      <ProjectCard project={project}>
+        <OpenSVG size={16} />
+      </ProjectCard>
+    </Link>
+  )
+
   return (
     <HomeLayout>
-      {projects.map(project => (
-        <div key={project.frontmatter.slug}>
-          {project.frontmatter.url ? (
-            <a href={project.frontmatter.url} target="_blank" rel="noreferrer">
-              <ProjectCard project={project}>
-                <ExternalLinkSVG size={16} />
-              </ProjectCard>
-            </a>
-          ) : (
-            <Link
-              to={project.frontmatter.category + "/" + project.frontmatter.slug}
-              state={{ originPage: "Home" }}
-            >
-              <ProjectCard project={project}>
-                <OpenSVG size={16} />
-              </ProjectCard>
-            </Link>
-          )}
-        </div>
-      ))}
+      {projects.map(project =>
+        project.hasOwnProperty("url") ? (
+          <div key={project.id}>
+            <HasUrlCard project={project} />
+          </div>
+        ) : (
+          <div key={project.id}>
+            <NoUrlCard project={project} />
+          </div>
+        )
+      )}
     </HomeLayout>
   )
 }
@@ -47,6 +58,7 @@ export const query = graphql`
       sort: { frontmatter: { sortDate: DESC } }
     ) {
       nodes {
+        id
         frontmatter {
           category
           description
@@ -57,9 +69,13 @@ export const query = graphql`
           slug
           size
           startDate
-          thumb
           title
           url
+          thumb {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
         }
       }
     }

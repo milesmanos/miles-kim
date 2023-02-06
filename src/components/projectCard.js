@@ -1,4 +1,4 @@
-import { GatsbyImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { css, cx } from "@emotion/css"
 import React from "react"
 import { colors } from "../styles/colors"
@@ -87,6 +87,9 @@ const iotas = css`
 `
 
 const ProjectCard = ({ project, children }) => {
+  const image = getImage(project.frontmatter.thumb)
+  const alt = project.frontmatter.title
+
   return (
     <div className={projectLink} key={project.id}>
       <div className={projectHeader}>
@@ -95,13 +98,7 @@ const ProjectCard = ({ project, children }) => {
       </div>
       <div className={projectBody}>
         {project.frontmatter.thumb ? (
-          <>
-            <GatsbyImage
-              image={project.frontmatter.thumb}
-              alt={project.frontmatter.title}
-              className={projectThumb}
-            />
-          </>
+          <GatsbyImage image={image} alt={alt} className={projectThumb} />
         ) : (
           <div style={{ width: "100%" }}>
             {project.frontmatter.preview}

@@ -2,10 +2,23 @@ exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
   const typeDefs = `
       type MdxFrontmatter implements Node {
-        preview: String!
-        endDate: String!
-        length: String!
-        url: String!
+        title: String!
+        preview: String
+        featured: String
+
+        category: String
+        description: String
+
+        length: String
+        size: String
+        place: String
+
+        stardDate: String
+        endDate: String
+        sortDate: Date
+
+        slug: String
+        url: String
       }
     `
   createTypes(typeDefs)
