@@ -23,7 +23,7 @@ const link = css`
   border-radius: 99px;
   @media (hover: hover) {
     :hover {
-      border: 1px solid ${colors.black.darkest};
+      border: 1px solid ${colors.black.secondary};
       color: ${colors.black.darkest};
     }
   }
@@ -104,6 +104,9 @@ const activeAny = css`
       color: white;
     }
   }
+  :active {
+    color: white;
+  }
 `
 const activeFeatured = css`
   background-color: ${colors.black.darkest};
@@ -159,32 +162,32 @@ export default function Tabs() {
   return (
     <div className={row}>
       <Link
-        activeClassName={cx(activeAny, activeFeatured)}
         className={link}
+        activeClassName={cx(activeAny, activeFeatured)}
         to="/"
       >
         Featured
         <AllProjectsSVG />
       </Link>
       <Link
-        activeClassName={cx(activeAny, activeDesign)}
         className={cx(link, redLink)}
+        activeClassName={cx(activeAny, activeDesign)}
         to="/design/"
       >
         Design
         <div className={cx("ellipse", "red")} />
       </Link>
       <Link
-        activeClassName={cx(activeAny, activeArt)}
         className={cx(link, greenLink)}
+        activeClassName={cx(activeAny, activeArt)}
         to="/art/"
       >
         Art
         <div className={cx("ellipse", "green")} />
       </Link>
       <Link
-        activeClassName={cx(activeAny, activeWriting)}
         className={cx(link, blueLink)}
+        activeClassName={cx(activeAny, activeWriting)}
         to="/writing/"
       >
         Writing

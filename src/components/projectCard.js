@@ -27,9 +27,6 @@ const projectLink = css`
   @media (hover: hover) {
     :hover {
       color: ${colors.black.darkest};
-      div.inherit {
-        color: ${colors.black.primary};
-      }
       div.icon {
         color: ${colors.black.primary};
       }
@@ -37,9 +34,6 @@ const projectLink = css`
   }
   :active {
     color: ${colors.black.secondary};
-    div.inherit {
-      color: ${colors.black.secondary};
-    }
     div.icon {
       color: ${colors.line.dark};
     }
@@ -52,7 +46,7 @@ const projectHeader = css`
   padding-top: 16px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   ${text.complete.sm};
   div.title {
     ${text.complete.md};
@@ -92,7 +86,6 @@ const iotas = css`
 const ProjectCard = ({ project }) => {
   const image = getImage(project.frontmatter.thumb)
   const alt = project.frontmatter.title
-  const hasUrl = project.frontmatter.hasOwnProperty("url")
 
   const ProjectContent = ({ svg }) => (
     <div className={projectLink} key={project.id}>
@@ -126,16 +119,16 @@ const ProjectCard = ({ project }) => {
 
   return (
     <>
-      {hasUrl ? (
+      {project.frontmatter.url ? (
         <a href={project.frontmatter.url} target="_blank" rel="noreferrer">
-          <ProjectContent svg={<ExternalLinkSVG size={16} />} />
+          <ProjectContent svg={<ExternalLinkSVG size={24} />} />
         </a>
       ) : (
         <Link
           to={project.frontmatter.category + "/" + project.frontmatter.slug}
           state={{ originPage: "Home" }}
         >
-          <ProjectContent svg={<OpenSVG size={16} />} />
+          <ProjectContent project={project} svg={<OpenSVG size={24} />} />
         </Link>
       )}
     </>
