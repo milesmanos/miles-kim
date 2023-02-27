@@ -61,12 +61,6 @@ const titleSty = css`
   }
 `
 
-// const divider = css`
-//   flex-grow: 1;
-//   height: 1px;
-//   background-color: ${colors.line.light};
-// `
-
 const gatsbyImg = css`
   display: flex;
   border-radius: 2px;
