@@ -46,7 +46,6 @@ const projectHeader = css`
   padding-top: 16px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   ${text.complete.sm};
   div.title {
     ${text.complete.md};
@@ -121,14 +120,14 @@ const ProjectCard = ({ project }) => {
     <>
       {project.frontmatter.url ? (
         <a href={project.frontmatter.url} target="_blank" rel="noreferrer">
-          <ProjectContent svg={<ExternalLinkSVG size={24} />} />
+          <ProjectContent svg={<ExternalLinkSVG size={20} />} />
         </a>
       ) : (
         <Link
           to={project.frontmatter.category + "/" + project.frontmatter.slug}
           state={{ originPage: "Home" }}
         >
-          <ProjectContent project={project} svg={<OpenSVG size={24} />} />
+          <ProjectContent project={project} svg={<OpenSVG size={20} />} />
         </Link>
       )}
     </>
