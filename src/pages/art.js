@@ -22,6 +22,7 @@ export const query = graphql`
       filter: {
         frontmatter: { category: { eq: "art" }, featured: { eq: "y" } }
       }
+      sort: { frontmatter: { sortDate: DESC } }
     ) {
       nodes {
         id

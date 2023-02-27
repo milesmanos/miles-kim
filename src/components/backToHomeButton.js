@@ -1,26 +1,24 @@
 import React from "react"
 import { Link, navigate } from "gatsby"
-import Button from "../components/Button"
+import Button from "../components/button"
 import { CloseSVG } from "../icons/CloseSVG"
 
 const BackToHomeButton = ({ originPage }) => {
   if (originPage) {
     return (
-      <Button isFullWidth onClick={() => navigate(-1)}>
-        <div className="text">Back to {originPage.originPage}</div>
-        <div className="icon">
-          <CloseSVG size={16} />
-        </div>
+      <Button
+        isFullWidth
+        svg={<CloseSVG size={16} />}
+        onClick={() => navigate(-1)}
+      >
+        Back to {originPage.originPage}
       </Button>
     )
   } else {
     return (
       <Link style={{ width: "100%" }} to="/">
-        <Button isFullWidth>
-          <div className="text">Home</div>
-          <div className="icon">
-            <CloseSVG size={16} />
-          </div>
+        <Button isFullWidth svg={<CloseSVG size={16} />}>
+          Home
         </Button>
       </Link>
     )

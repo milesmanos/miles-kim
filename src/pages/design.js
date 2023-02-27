@@ -19,9 +19,8 @@ const DesignPage = ({ data }) => {
 export const query = graphql`
   query {
     designProjects: allMdx(
-      filter: {
-        frontmatter: { category: { eq: "design" }, featured: { eq: "y" } }
-      }
+      filter: { frontmatter: { category: { eq: "design" } } }
+      sort: { frontmatter: { sortDate: DESC } }
     ) {
       nodes {
         id

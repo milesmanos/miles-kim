@@ -9,6 +9,7 @@ import Header from "../../components/header"
 import Seo from "../../components/seo"
 import BackToHomeButton from "../../components/backToHomeButton"
 import { Spacers } from "../../styles/spacers"
+import Footer from "../../components/footer"
 
 const hero = css`
   height: 100vh;
@@ -115,6 +116,7 @@ const ArtProject = ({ data, location }) => {
           <BackToHomeButton originPage={location.state} />
         </div>
       </div>
+      <Footer />
     </div>
   )
 }
