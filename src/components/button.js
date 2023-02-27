@@ -77,6 +77,10 @@ const fullWidth = css`
   justify-content: space-between;
   padding: 10px 0px;
 `
+const inline = css`
+  padding: 0px;
+  color: inherit;
+`
 const noUnderline = css`
   color: inherit;
   div.text {
@@ -101,6 +105,7 @@ const Button = ({
   children,
   isLightbox,
   isFullWidth,
+  isInline,
   isNoUnderline,
   isDisabled,
   onClick,
@@ -112,6 +117,7 @@ const Button = ({
         buttonSty,
         isLightbox && lightbox,
         isFullWidth && fullWidth,
+        isInline && inline,
         isNoUnderline && noUnderline
       )}
       disabled={isDisabled}

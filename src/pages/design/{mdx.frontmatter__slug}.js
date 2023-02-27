@@ -2,12 +2,9 @@ import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import * as React from "react"
 import Seo from "../../components/seo"
-import { css, cx } from "@emotion/css"
-import { colors } from "../styles/colors"
-import { text } from "../styles/text"
 
-const ArtProject = ({ data }) => {
-  const project = data.artProject
+const DesignProject = ({ data }) => {
+  const project = data.designProject
   const image = getImage(project.frontmatter.thumb)
   const alt = project.frontmatter.title
 
@@ -21,7 +18,10 @@ const ArtProject = ({ data }) => {
 
 export const query = graphql`
   query ($id: String) {
-    artProject: mdx(id: { eq: $id }, frontmatter: { category: { eq: "art" } }) {
+    designProject: mdx(
+      id: { eq: $id }
+      frontmatter: { category: { eq: "design" } }
+    ) {
       frontmatter {
         title
         thumb {
@@ -36,4 +36,4 @@ export const query = graphql`
 
 export const Head = () => <Seo title="Super Cool Blog Posts" />
 
-export default ArtProject
+export default DesignProject

@@ -7,6 +7,7 @@ import { text } from "../styles/text"
 import { ExternalLinkSVG } from "../icons/ExternalLinkSVG"
 import { OpenSVG } from "../icons/OpenSVG"
 import { Link } from "gatsby"
+import Button from "./button"
 
 // Link wrapper (contains all hover action):
 const projectLink = css`
@@ -17,26 +18,44 @@ const projectLink = css`
   padding-top: 4px;
   border: none;
   margin-top: -1px;
-  div.icon {
+  div.linkButton {
+    ${text.complete.xs};
+    gap: 6px;
     display: flex;
-    color: ${colors.line.dark};
-  }
-  div.inherit {
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 5px;
     color: ${colors.black.secondary};
-  }
-  @media (hover: hover) {
-    :hover {
-      color: ${colors.black.darkest};
-      div.icon {
-        color: ${colors.black.primary};
+    background-color: ${colors.bg.light};
+    @media (hover: hover) {
+      :hover {
+        color: ${colors.black.darkest};
+        div.linkButton {
+          color: ${colors.black.primary};
+        }
+      }
+    }
+    :active {
+      color: ${colors.black.secondary};
+      div.linkButton {
+        color: ${colors.black.secondary};
+        background-color: ${colors.bg.dark};
       }
     }
   }
-  :active {
-    color: ${colors.black.secondary};
-    div.icon {
-      color: ${colors.line.dark};
+  div.readMoreLink {
+    cursor: pointer;
+    @media (hover: hover) {
+      :hover {
+        color: ${colors.black.primary};
+      }
     }
+    :active {
+      color: ${colors.black.barely};
+    }
+  }
+  div.info {
+    color: ${colors.black.secondary};
   }
 `
 
@@ -86,11 +105,23 @@ const ProjectCard = ({ project }) => {
   const image = getImage(project.frontmatter.thumb)
   const alt = project.frontmatter.title
 
-  const ProjectContent = ({ svg }) => (
+  const ProjectContent = ({ svg, linkText }) => (
     <div className={projectLink} key={project.id}>
       <div className={projectHeader}>
         <div className="title">{project.frontmatter.title}</div>
-        <div className="icon">{svg}</div>
+        {project.frontmatter.url ? (
+          <a href={project.frontmatter.url} target="_blank" rel="noreferrer">
+            <div className="linkButton">
+              {linkText}
+              {svg}
+            </div>
+          </a>
+        ) : (
+          <div className="linkButton">
+            {linkText}
+            {svg}
+          </div>
+        )}
       </div>
       <div className={projectBody}>
         {project.frontmatter.thumb ? (
@@ -98,11 +129,30 @@ const ProjectCard = ({ project }) => {
         ) : (
           <div style={{ width: "100%" }}>
             {project.frontmatter.preview}
-            <div className="inherit">...</div>
+            <div className="info">...</div>
           </div>
         )}
-        <div className={cx(iotas, "inherit")}>
-          <div>{project.frontmatter.description}</div>
+        <div className={cx(iotas, "info")}>
+          {project.frontmatter.url ? (
+            <div className="readMoreLink">
+              {project.frontmatter.description}{" "}
+              <span>
+                <Link
+                  to={
+                    project.frontmatter.category +
+                    "/" +
+                    project.frontmatter.slug
+                  }
+                  state={{ originPage: "Home" }}
+                >
+                  <Button isInline>Read More</Button>
+                </Link>
+              </span>
+            </div>
+          ) : (
+            project.frontmatter.description
+          )}
+
           {project.frontmatter.length && (
             <div>{project.frontmatter.length}</div>
           )}
@@ -119,15 +169,16 @@ const ProjectCard = ({ project }) => {
   return (
     <>
       {project.frontmatter.url ? (
-        <a href={project.frontmatter.url} target="_blank" rel="noreferrer">
-          <ProjectContent svg={<ExternalLinkSVG size={20} />} />
-        </a>
+        <ProjectContent
+          linkText="Visit link"
+          svg={<ExternalLinkSVG size={16} />}
+        />
       ) : (
         <Link
           to={project.frontmatter.category + "/" + project.frontmatter.slug}
           state={{ originPage: "Home" }}
         >
-          <ProjectContent project={project} svg={<OpenSVG size={20} />} />
+          <ProjectContent linkText="Open project" svg={<OpenSVG size={16} />} />
         </Link>
       )}
     </>

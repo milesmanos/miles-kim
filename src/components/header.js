@@ -174,15 +174,17 @@ const Header = ({ isClear }) => {
                   </div>
                   <div>
                     Graduated Yale class of 2020 with a B.A. in studio art. Has
-                    worked as a designer and (sometimes) frontend developer for
-                    startups over the past years.
+                    worked as a designer, copywriter, and (sometimes) frontend
+                    developer for startups over the past couple of years.
+                    Thoughtful, focused designs with no frills.
                   </div>
                   <div>
                     <div style={{ textDecoration: "line-through" }}>
-                      Is always looking for new ways to think and create, is
-                      itching for new projects.
+                      Is working at Ahoy Labs.
                     </div>
-                    Is working at Ahoy Labs.
+                    Is always looking for new ways to think and create, is
+                    itching for new projects. Really, really wants to work at
+                    Substack.
                   </div>
                 </div>
                 <div className={buttonGroup}>
