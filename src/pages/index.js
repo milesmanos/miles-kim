@@ -2,13 +2,13 @@ import * as React from "react"
 import { graphql } from "gatsby"
 import HomeLayout from "../components/homeLayout"
 import Seo from "../components/seo"
-import ProjectCard from "../components/ProjectCard"
+import ProjectCard from "../components/projectCard"
 
 // Hello again Miles! File Structure:
 // - Home: index.js (layout in HomeLayout.js)
-// - Projects List: /components/ProjectsList.js
+// - Projects List: /components/projectsList.js
 // - Project queries: /templates/project-details.js
-// - Project layouts: /components/ProjectLayout.js
+// - Project layouts: /components/projectLayout.js
 
 const IndexPage = ({ data }) => {
   const projects = data.projects.nodes

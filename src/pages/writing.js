@@ -2,7 +2,7 @@ import * as React from "react"
 import { graphql } from "gatsby"
 import HomeLayout from "../components/homeLayout"
 import Seo from "../components/seo"
-import ProjectCard from "../components/ProjectCard"
+import ProjectCard from "../components/projectCard"
 
 const WritingPage = ({ data }) => {
   const projects = data.writingProjects.nodes
