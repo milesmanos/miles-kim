@@ -123,7 +123,7 @@ const ArtProject = ({ data, location }) => {
 
 export const query = graphql`
   query ($id: String) {
-    artProject: mdx(id: { eq: $id }, frontmatter: { category: { eq: "art" } }) {
+    artProject: mdx(id: { eq: $id }) {
       frontmatter {
         description
         title

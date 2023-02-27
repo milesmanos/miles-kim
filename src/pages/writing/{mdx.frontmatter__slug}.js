@@ -125,10 +125,7 @@ const WritingProject = ({ data, location, children }) => {
 
 export const query = graphql`
   query ($id: String) {
-    writingProject: mdx(
-      id: { eq: $id }
-      frontmatter: { category: { eq: "writing" } }
-    ) {
+    writingProject: mdx(id: { eq: $id }) {
       frontmatter {
         description
         title

@@ -181,10 +181,7 @@ const DesignProject = ({ data, location, children }) => {
 
 export const query = graphql`
   query ($id: String) {
-    designProject: mdx(
-      id: { eq: $id }
-      frontmatter: { category: { eq: "design" } }
-    ) {
+    designProject: mdx(id: { eq: $id }) {
       frontmatter {
         type
         title
