@@ -16,6 +16,7 @@ html {
   /* Prevents page from jumping with scrollbar */
   overflow-y: scroll;
   box-sizing: border-box;
+  scrollbar-gutter: stable;
 }
 
 * {
