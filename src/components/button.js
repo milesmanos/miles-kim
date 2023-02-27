@@ -55,18 +55,24 @@ const buttonSty = css`
 const lightbox = css`
   div.text {
     color: white;
+  }
+  div.inner {
     border-bottom: 1px solid #494949;
   }
+
   @media (hover: hover) {
     :hover {
       div.text {
+        color: white;
+      }
+      div.inner {
         border-bottom: 1px solid #808080;
       }
     }
   }
 
   :active {
-    div.text {
+    div.inner {
       color: #b5b5b5;
       border-bottom: 1px solid #494949;
     }

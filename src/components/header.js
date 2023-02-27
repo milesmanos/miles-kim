@@ -141,7 +141,7 @@ const Header = ({ isClear }) => {
         </Link>
       </div>
       <Button isLightbox={isClear} onClick={() => handleOpenInfo()}>
-        <div>Info</div>
+        Info
       </Button>
 
       {/* Info */}

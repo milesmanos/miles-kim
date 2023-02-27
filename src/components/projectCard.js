@@ -101,7 +101,7 @@ const iotas = css`
   }
 `
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ originPage, project }) => {
   const image = getImage(project.frontmatter.thumb)
   const alt = project.frontmatter.title
 
@@ -135,19 +135,20 @@ const ProjectCard = ({ project }) => {
         <div className={cx(iotas, "info")}>
           {project.frontmatter.url ? (
             <div className="readMoreLink">
-              {project.frontmatter.description}{" "}
-              <span>
-                <Link
-                  to={
-                    project.frontmatter.category +
-                    "/" +
-                    project.frontmatter.slug
-                  }
-                  state={{ originPage: "Home" }}
-                >
+              <Link
+                to={
+                  "/" +
+                  project.frontmatter.category +
+                  "/" +
+                  project.frontmatter.slug
+                }
+                state={{ originPage: originPage }}
+              >
+                {project.frontmatter.description}{" "}
+                <span>
                   <Button isInline>Read More</Button>
-                </Link>
-              </span>
+                </span>
+              </Link>
             </div>
           ) : (
             project.frontmatter.description
@@ -175,8 +176,10 @@ const ProjectCard = ({ project }) => {
         />
       ) : (
         <Link
-          to={project.frontmatter.category + "/" + project.frontmatter.slug}
-          state={{ originPage: "Home" }}
+          to={
+            "/" + project.frontmatter.category + "/" + project.frontmatter.slug
+          }
+          state={{ originPage: originPage }}
         >
           <ProjectContent linkText="Open project" svg={<OpenSVG size={16} />} />
         </Link>

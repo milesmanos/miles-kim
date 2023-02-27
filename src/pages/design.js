@@ -10,7 +10,7 @@ const DesignPage = ({ data }) => {
   return (
     <HomeLayout>
       {projects.map(project => (
-        <ProjectCard project={project} />
+        <ProjectCard originPage="Design" project={project} />
       ))}
     </HomeLayout>
   )
