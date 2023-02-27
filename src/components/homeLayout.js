@@ -4,7 +4,7 @@ import Header from "./header"
 
 import "../styles/global.css"
 import "../styles/normalize.css"
-import Tabs from "./Tabs"
+import Tabs from "./tabs"
 
 const pageWrapper = css`
   display: flex;
