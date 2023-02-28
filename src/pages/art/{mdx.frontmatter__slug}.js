@@ -139,6 +139,8 @@ export const query = graphql`
   }
 `
 
-export const Head = () => <Seo title="Super Cool Blog Posts" />
+export const Head = ({ data }) => (
+  <Seo title={data.artProject.frontmatter.title} />
+)
 
 export default ArtProject

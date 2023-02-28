@@ -218,6 +218,8 @@ export const query = graphql`
   }
 `
 
-export const Head = () => <Seo title="Super Cool Blog Posts" />
+export const Head = ({ data }) => (
+  <Seo title={data.designProject.frontmatter.title} />
+)
 
 export default DesignProject
