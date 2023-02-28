@@ -86,6 +86,12 @@ const fullWidth = css`
 const inline = css`
   padding: 0px;
   color: inherit;
+  border-bottom: 1px solid ${colors.line.light};
+  margin-bottom: -1px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
 `
 const noUnderline = css`
   color: inherit;
