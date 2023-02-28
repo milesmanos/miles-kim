@@ -63,17 +63,17 @@ const titleSty = css`
 
 const gatsbyImg = css`
   display: flex;
-  border-radius: 2px;
-  box-shadow: 0 1px 12px 0 ${colors.line.dark};
-  img {
+  /* border-radius: 2px; */
+  /* box-shadow: 0 1px 12px 0 ${colors.line.dark}; */
+  /* img {
     border-radius: 2px;
-  }
+  } */
 `
 
 const imageSection = css`
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 24px;
 `
 
 const longDescription = css`
