@@ -59,13 +59,13 @@ const gatsbyImg = css`
 
 const mainText = css`
   margin-top: 84px;
-  font-family: "Times New Roman", Times, serif;
+  /* font-family: "Times New Roman", Times, serif; */
   p {
     font-size: 18px;
     line-height: 28px;
     margin-bottom: 28px;
     strong {
-      font-weight: 600;
+      font-weight: 500;
     }
   }
   h2 {

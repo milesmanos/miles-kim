@@ -105,9 +105,9 @@ const iotas = css`
   }
 `
 const preview = css`
-  font-family: "Times New Roman", Times, serif;
+  /* font-family: "Times New Roman", Times, serif; */
   width: 100%;
-  font-size: 18px;
+  /* font-size: 18px; */
 `
 
 const ProjectCard = ({ originPage, project }) => {

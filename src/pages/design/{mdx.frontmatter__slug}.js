@@ -73,7 +73,7 @@ const gatsbyImg = css`
 const imageSection = css`
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 48px;
 `
 
 const longDescription = css`
