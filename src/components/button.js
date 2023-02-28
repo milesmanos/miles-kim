@@ -7,7 +7,7 @@ const buttonSty = css`
   ${text.complete.sm};
   cursor: pointer;
   padding: 10px 20px;
-
+  color: ${colors.black.primary};
   div.inner {
     border-bottom: 1px solid ${colors.line.light};
     margin-bottom: -1px;

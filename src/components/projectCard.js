@@ -28,6 +28,7 @@ const projectLink = css`
     border-radius: 5px;
     color: ${colors.black.secondary};
     background-color: ${colors.bg.light};
+    flex-shrink: 0;
   }
   div.readMoreLink {
     cursor: pointer;
