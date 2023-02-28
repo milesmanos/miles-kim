@@ -20,6 +20,7 @@ const projectLink = css`
   margin-top: -1px;
   div.linkButton {
     ${text.complete.xs};
+    font-weight: 400;
     gap: 6px;
     display: flex;
     align-items: center;
@@ -27,21 +28,6 @@ const projectLink = css`
     border-radius: 5px;
     color: ${colors.black.secondary};
     background-color: ${colors.bg.light};
-    @media (hover: hover) {
-      :hover {
-        color: ${colors.black.darkest};
-        div.linkButton {
-          color: ${colors.black.primary};
-        }
-      }
-    }
-    :active {
-      color: ${colors.black.secondary};
-      div.linkButton {
-        color: ${colors.black.secondary};
-        background-color: ${colors.bg.dark};
-      }
-    }
   }
   div.readMoreLink {
     cursor: pointer;
@@ -66,10 +52,28 @@ const projectHeader = css`
   display: flex;
   justify-content: space-between;
   ${text.complete.sm};
-  div.title {
+  a.title {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
     ${text.complete.md};
     color: ${colors.black.darkest};
     font-weight: 500;
+    @media (hover: hover) {
+      :hover {
+        color: ${colors.black.darkest};
+        div.linkButton {
+          color: ${colors.black.primary};
+        }
+      }
+    }
+    :active {
+      color: ${colors.black.secondary};
+      div.linkButton {
+        color: ${colors.black.secondary};
+        background-color: ${colors.bg.dark};
+      }
+    }
   }
 `
 const projectThumb = css`
@@ -100,6 +104,11 @@ const iotas = css`
     width: 100%;
   }
 `
+const preview = css`
+  font-family: "Times New Roman", Times, serif;
+  width: 100%;
+  font-size: 18px;
+`
 
 const ProjectCard = ({ originPage, project }) => {
   const image = getImage(project.frontmatter.thumb)
@@ -108,26 +117,38 @@ const ProjectCard = ({ originPage, project }) => {
   const ProjectContent = ({ svg, linkText }) => (
     <div className={projectLink} key={project.id}>
       <div className={projectHeader}>
-        <div className="title">{project.frontmatter.title}</div>
         {project.frontmatter.url ? (
-          <a href={project.frontmatter.url} target="_blank" rel="noreferrer">
-            <div className="linkButton">
-              {linkText}
-              {svg}
-            </div>
-          </a>
+          <>
+            <a
+              className="title"
+              href={project.frontmatter.url}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div>{project.frontmatter.title}</div>
+              <div className="linkButton">
+                {linkText}
+                {svg}
+              </div>
+            </a>
+          </>
         ) : (
-          <div className="linkButton">
-            {linkText}
-            {svg}
-          </div>
+          <>
+            <a className="title">
+              {project.frontmatter.title}
+              <div className="linkButton">
+                {linkText}
+                {svg}
+              </div>
+            </a>
+          </>
         )}
       </div>
       <div className={projectBody}>
         {project.frontmatter.thumb ? (
           <GatsbyImage image={image} alt={alt} className={projectThumb} />
         ) : (
-          <div style={{ width: "100%" }}>
+          <div className={preview}>
             {project.frontmatter.preview}
             <div className="info">...</div>
           </div>

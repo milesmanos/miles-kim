@@ -16,6 +16,7 @@ const mainBody = css`
   align-items: center;
   /* space for header */
   padding-top: 56px;
+  min-height: 100vh;
   div.container {
     display: flex;
     flex-direction: column;
@@ -58,16 +59,18 @@ const gatsbyImg = css`
 
 const mainText = css`
   margin-top: 84px;
+  font-family: "Times New Roman", Times, serif;
   p {
     font-size: 18px;
     line-height: 28px;
     margin-bottom: 28px;
     strong {
-      font-weight: 500;
+      font-weight: 600;
     }
   }
   h2 {
     ${text.complete.md};
+    font-family: "Neue Haas Unica";
     color: ${colors.black.darkest};
     font-weight: 500;
     margin-bottom: 28px;
