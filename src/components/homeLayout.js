@@ -32,6 +32,7 @@ const HomeLayout = ({ children }) => {
       <div className={mainBody}>
         <Tabs />
         {children}
+        <Tabs />
       </div>
       <Footer />
     </div>
