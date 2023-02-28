@@ -133,7 +133,7 @@ const ProjectCard = ({ originPage, project }) => {
           </div>
         )}
         <div className={cx(iotas, "info")}>
-          {project.frontmatter.url ? (
+          {project.frontmatter.category === "design" ? (
             <div className="readMoreLink">
               <Link
                 to={

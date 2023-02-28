@@ -19,9 +19,7 @@ const ArtPage = ({ data }) => {
 export const query = graphql`
   query {
     artProjects: allMdx(
-      filter: {
-        frontmatter: { category: { eq: "art" }, featured: { eq: "y" } }
-      }
+      filter: { frontmatter: { category: { eq: "art" } } }
       sort: { frontmatter: { sortDate: DESC } }
     ) {
       nodes {

@@ -19,9 +19,7 @@ const WritingPage = ({ data }) => {
 export const query = graphql`
   query {
     writingProjects: allMdx(
-      filter: {
-        frontmatter: { category: { eq: "writing" }, featured: { eq: "y" } }
-      }
+      filter: { frontmatter: { category: { eq: "writing" } } }
       sort: { frontmatter: { sortDate: DESC } }
     ) {
       nodes {
@@ -38,11 +36,6 @@ export const query = graphql`
           startDate
           title
           url
-          thumb {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
         }
       }
     }
