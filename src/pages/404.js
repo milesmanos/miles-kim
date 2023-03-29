@@ -1,6 +1,9 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
+import "../styles/global.css"
+import "../styles/normalize.css"
+
 const pageStyles = {
   color: "#232129",
   padding: "96px",

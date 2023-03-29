@@ -4,6 +4,9 @@ import HomeLayout from "../components/homeLayout"
 import Seo from "../components/seo"
 import ProjectCard from "../components/projectCard"
 
+import "../styles/global.css"
+import "../styles/normalize.css"
+
 const DesignPage = ({ data }) => {
   const projects = data.designProjects.nodes
 
