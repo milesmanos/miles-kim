@@ -12,6 +12,8 @@ import Button from "../../components/button"
 import { ExternalLinkSVG } from "../../icons/ExternalLinkSVG"
 import { breakpoint } from "../../styles/layout"
 import Footer from "../../components/footer"
+import "../styles/global.css"
+import "../styles/normalize.css"
 
 const isHiddenMobile = css`
   ${breakpoint} {

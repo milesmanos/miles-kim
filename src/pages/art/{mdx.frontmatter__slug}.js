@@ -10,6 +10,10 @@ import Seo from "../../components/seo"
 import BackToHomeButton from "../../components/backToHomeButton"
 import { Spacers } from "../../styles/spacers"
 import Footer from "../../components/footer"
+import "../styles/global.css"
+import "../styles/normalize.css"
+import "../styles/global.css"
+import "../styles/normalize.css"
 
 const hero = css`
   height: 100vh;
