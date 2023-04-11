@@ -179,12 +179,8 @@ const Header = ({ isClear }) => {
                     Thoughtful, focused designs with no frills.
                   </div>
                   <div>
-                    {/* <div style={{ textDecoration: "line-through" }}>
-                      Is working at Ahoy Labs.
-                    </div> */}
                     Is always looking for new ways to think and create, is
-                    itching for new projects. Really, really wants to work at
-                    Substack.
+                    itching for new projects.
                   </div>
                 </div>
                 <div className={buttonGroup}>
