@@ -99,7 +99,20 @@ const infoText = css`
   display: flex;
   flex-direction: column;
   gap: 24px;
+  span.designer {
+    font-weight: 500;
+    color: ${colors.red};
+  }
+  span.artist {
+    font-weight: 500;
+    color: ${colors.green};
+  }
+  span.writer {
+    font-weight: 500;
+    color: ${colors.blue};
+  }
 `
+
 const buttonGroup = css`
   display: flex;
   flex-direction: column;
@@ -166,21 +179,42 @@ const Header = ({ isClear }) => {
                 </Button>
               </div>
               <div className={infoContent}>
+                <StaticImage
+                  src="../images/shroommates.jpg"
+                  alt="Me"
+                  // aspectRatio={1 / 1}
+                  className={profPic}
+                />
                 <div className={infoText}>
                   <div>
-                    ... designs interfaces, lives in San Francisco, writes
-                    often, paints sometimes. Loves music, surfing, hiking, and
-                    nature docs.
+                    I’m a user interface designer, artist, and writer based in
+                    Brooklyn.
                   </div>
                   <div>
-                    Graduated Yale class of 2020 with a B.A. in studio art. Has
-                    worked as a designer, copywriter, and (sometimes) frontend
-                    developer for startups over the past couple of years.
-                    Thoughtful, focused designs with no frills.
+                    As a <span className="designer">designer</span>, I’m a
+                    generalist who thrives in the “0 to 1” stage. I help
+                    founders develop their brand identity, product vision, and
+                    copy. I’ve founded a couple companies, been hired early at
+                    others, and freelanced.
                   </div>
                   <div>
-                    Is always looking for new ways to think and create, is
-                    itching for new projects.
+                    As an <span className="artist">artist</span>, I’m an
+                    on-and-off painter and photographer who enjoys the chaos of
+                    physical media. I graduated Yale class of 2020 with a B.A.
+                    in studio art.
+                  </div>
+                  <div>
+                    As a <span className="writer">writer</span>, I’m still
+                    developing my voice. My main outlet is a Substack newsletter
+                    called Long Life, and I’ve published a few essays and poems.
+                    On top of my thesis in painting, I wrote a collection of
+                    poetry as an unofficial thesis, under the supervision of
+                    Nobel laureate Louise Glück.
+                  </div>
+                  <div>
+                    I’m always looking for new and interesting projects in all
+                    domains – please reach out to me if you want to work
+                    together!
                   </div>
                 </div>
                 <div className={buttonGroup}>
@@ -226,12 +260,6 @@ const Header = ({ isClear }) => {
                   </div>
                 </div>
 
-                <StaticImage
-                  src="../images/shroommates.jpg"
-                  alt="Me"
-                  // aspectRatio={1 / 1}
-                  className={profPic}
-                />
                 <Spacers.Vertical._0px />
                 <Button
                   isFullWidth
