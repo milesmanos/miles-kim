@@ -168,7 +168,7 @@ const ProjectCard = ({ originPage, project }) => {
               >
                 {project.frontmatter.description}{" "}
                 <span>
-                  <Button isInline>Read More</Button>
+                  <Button isInline>View case study</Button>
                 </span>
               </Link>
             </div>
@@ -203,7 +203,7 @@ const ProjectCard = ({ originPage, project }) => {
           }
           state={{ originPage: originPage }}
         >
-          <ProjectContent linkText="Open project" svg={<OpenSVG size={16} />} />
+          <ProjectContent linkText="View project" svg={<OpenSVG size={16} />} />
         </Link>
       )}
     </>

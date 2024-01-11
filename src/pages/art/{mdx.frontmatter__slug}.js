@@ -12,10 +12,12 @@ import { Spacers } from "../../styles/spacers"
 import Footer from "../../components/footer"
 import "../../styles/global.css"
 import "../../styles/normalize.css"
+import { ChevronDownSVG } from "../../icons/ChevronDownSVG"
 
 const hero = css`
   height: 100vh;
   background-color: ${colors.black.darkest};
+  color: ${colors.white};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,6 +30,12 @@ const gatsbyImg = css`
     max-height: 100%;
     border-radius: 2px;
   }
+`
+
+const downArrowSVG = css`
+  position: absolute;
+  bottom: 0px;
+  padding: 8px;
 `
 
 const mainBody = css`
@@ -94,6 +102,9 @@ const ArtProject = ({ data, location }) => {
           className={gatsbyImg}
           objectFit="contain"
         />
+        <div className={downArrowSVG}>
+          <ChevronDownSVG size={20} />
+        </div>
       </div>
       <div className={mainBody}>
         <div className="container">

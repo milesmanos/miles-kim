@@ -227,9 +227,9 @@ const Header = ({ isClear }) => {
                 </div>
 
                 <StaticImage
-                  src="../images/square-prof-pic.jpg"
+                  src="../images/shroommates.jpg"
                   alt="Me"
-                  aspectRatio={1 / 1}
+                  // aspectRatio={1 / 1}
                   className={profPic}
                 />
                 <Spacers.Vertical._0px />
