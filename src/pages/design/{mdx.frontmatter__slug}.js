@@ -65,11 +65,11 @@ const titleSty = css`
 
 const gatsbyImg = css`
   display: flex;
-  /* border-radius: 2px; */
-  /* box-shadow: 0 1px 12px 0 ${colors.line.dark}; */
-  /* img {
+  border-radius: 2px;
+  border: 1px solid ${colors.line.light};
+  img {
     border-radius: 2px;
-  } */
+  }
 `
 
 const imageSection = css`
